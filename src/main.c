@@ -5,12 +5,18 @@ int main(){
 
     InitWindow(1280, 720, "Primeiro Teste");
     SetTargetFPS(60);
+    InitAudioDevice();
+    
+
 
     Rectangle BotaoStart = {50, 200, 250, 60};
     Rectangle BotaoQuit = {50, 300, 250, 60};
     Rectangle BotaoCredits = {50, 400, 250, 60};
     Color CorBotao = { 30, 30, 30, 255 };
     Color CorBotaoSel = { 50, 50, 50, 255 }; 
+    Sound Som_UI = LoadSound("Sounds/UI_SOUND.mp3");
+    SetSoundVolume(Som_UI, 30);
+    bool FlagMouse = false;
 
     float RoundButton = 0.3f;
     int Segments = 8;
@@ -20,7 +26,6 @@ int main(){
 
     while(WindowShouldClose() == false)
     {
-
         // Desenho
         BeginDrawing();
             ClearBackground(WHITE);
@@ -35,26 +40,49 @@ int main(){
             if(CheckCollisionPointRec(GetMousePosition(), BotaoStart)){
                 DrawRectangleRounded(BotaoStart, RoundButton, Segments, CorBotaoSel);
                 //Começar Jogo
+                if(!FlagMouse){
+                    PlaySound(Som_UI);
+                    FlagMouse = true;
+                    }
+
                 if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
                     printf("Botão JOGAR foi clicado");
-            }
-            if(CheckCollisionPointRec(GetMousePosition(), BotaoQuit)){
+                }
+            } 
+
+
+            else if(CheckCollisionPointRec(GetMousePosition(), BotaoQuit)){
                 DrawRectangleRounded(BotaoQuit, RoundButton, Segments, CorBotaoSel);
                 //Sair do Jogo
-                if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
-                    printf("Botão SAIR foi clicado");
-                    break;
+                if(!FlagMouse){
+                    PlaySound(Som_UI);
+                    FlagMouse = true;
+                    }
 
-                }   
-            }
-            if(CheckCollisionPointRec(GetMousePosition(), BotaoCredits)){
+                if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
+                    printf("Botão Saur foi clicado");
+                    break;
+                }
+            } 
+
+
+            else if(CheckCollisionPointRec(GetMousePosition(), BotaoCredits)){
                 DrawRectangleRounded(BotaoCredits, RoundButton, Segments, CorBotaoSel);
                 //Entrar nos créditos
-                if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
-                    printf("Botão CRÉDITOS foi clicado");
-            } }
+                if(!FlagMouse){
+                    PlaySound(Som_UI);
+                    FlagMouse = true;
+                    }
 
-            
+                if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
+                    printf("Botão Créditos foi clicado");
+                }
+            }
+
+            else{
+                FlagMouse = false;
+            }
+             
             //Texto dos Botões
             DrawText("Iniciar Jogo", 110, 225, 20, RAYWHITE);
             DrawText("Sair", 110, 325, 20, RAYWHITE);
@@ -66,10 +94,10 @@ int main(){
 
         EndDrawing();
     }
+    
 
-    
-    
+    UnloadSound(Som_UI);
+    CloseAudioDevice();    
     CloseWindow();
-    return 0; 
-}   
+    return 0;    
 }
