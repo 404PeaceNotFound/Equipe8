@@ -116,7 +116,7 @@ int main(){
             
             int widthFooter = MeasureText(textFooter, FONT_SIZE);
             int xFooter = (1280 / 2) - (widthFooter / 2); // o x do footer é a largura da tela
-            int yFooter = 720; // Mantém sua posição Y original
+            int yFooter = 700   ; // Mantém sua posição Y original
             DrawText(textFooter, xFooter, yFooter, FONT_SIZE, BLACK);
 
            
