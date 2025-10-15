@@ -87,6 +87,7 @@ int main(){
             DrawText("Iniciar Jogo", 110, 225, 20, RAYWHITE);
             DrawText("Sair", 110, 325, 20, RAYWHITE);
             DrawText("Créditos", 110, 425, 20, RAYWHITE);
+            DrawText("CIN-UFPE 2025", 600, 700, 20, BLACK);
 
             
 
