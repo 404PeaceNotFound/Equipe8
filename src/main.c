@@ -9,9 +9,9 @@ int main(){
     
 
 
-    Rectangle BotaoStart = {50, 200, 250, 60};
-    Rectangle BotaoQuit = {50, 300, 250, 60};
-    Rectangle BotaoCredits = {50, 400, 250, 60};
+    Rectangle BotaoStart = {-5, 200, 250, 60};
+    Rectangle BotaoQuit = {-5, 300, 250, 60};
+    Rectangle BotaoCredits = {-5, 400, 250, 60};
     Color CorBotao = { 30, 30, 30, 255 };
     Color CorBotaoSel = { 50, 50, 50, 255 }; 
     Sound Som_UI = LoadSound("Sounds/UI_SOUND.mp3");
