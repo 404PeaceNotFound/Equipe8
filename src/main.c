@@ -1,5 +1,6 @@
 #include <raylib.h>
 #include <stdio.h>
+#include "creditos.h"
 
 int main(){
 
@@ -82,10 +83,9 @@ int main(){
                     }
 
                 if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
-                    printf("Botão Créditos foi clicado");
+                    TelaCreditos(); // creditos.c rodando aqui !!!
                 }
             }
-
             else{
                 FlagMouse = false;
             }
