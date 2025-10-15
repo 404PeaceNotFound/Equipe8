@@ -34,13 +34,25 @@ int main(){
             //Interação com o Botão
             if(CheckCollisionPointRec(GetMousePosition(), BotaoStart)){
                 DrawRectangleRounded(BotaoStart, RoundButton, Segments, CorBotaoSel);
+                //Começar Jogo
+                if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
+                    printf("Botão JOGAR foi clicado");
             }
             if(CheckCollisionPointRec(GetMousePosition(), BotaoQuit)){
                 DrawRectangleRounded(BotaoQuit, RoundButton, Segments, CorBotaoSel);
+                //Sair do Jogo
+                if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
+                    printf("Botão SAIR foi clicado");
+                    break;
+
+                }   
             }
             if(CheckCollisionPointRec(GetMousePosition(), BotaoCredits)){
                 DrawRectangleRounded(BotaoCredits, RoundButton, Segments, CorBotaoSel);
-            }
+                //Entrar nos créditos
+                if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
+                    printf("Botão CRÉDITOS foi clicado");
+            } }
 
             
             //Texto dos Botões
@@ -59,4 +71,5 @@ int main(){
     
     CloseWindow();
     return 0; 
+}   
 }
