@@ -9,9 +9,9 @@ int main(){
     InitAudioDevice();
     
     // Definições de Botões e Cores
-    Rectangle BotaoStart = {-5, 200, 250, 60};
-    Rectangle BotaoQuit = {-5, 300, 250, 60};
-    Rectangle BotaoCredits = {-5, 400, 250, 60};
+    Rectangle BotaoStart = {-5, 300, 250, 60};
+    Rectangle BotaoQuit = {-5, 400, 250, 60};
+    Rectangle BotaoCredits = {-5, 500, 250, 60};
     Color CorBotao = { 30, 30, 30, 255 };
     Color CorBotaoSel = { 50, 50, 50, 255 }; 
     
@@ -31,15 +31,18 @@ int main(){
     int Segments = 8;
 
     Texture2D background;
-    background = LoadTexture("Images/Background.png");
+    background = LoadTexture("/home/lucianojrs/Documentos/GITHUB/Equipe8/imagens/Background.png");
 
     while(WindowShouldClose() == false)
     {
         
         BeginDrawing();
-            ClearBackground(WHITE);
-            
+            //ClearBackground(RAYWHITE);
+            DrawTexture(background, 0, 0, WHITE);
 
+            //Título
+
+            
             //  Botões Menu
             DrawRectangleRounded(BotaoStart, RoundButton, Segments, CorBotao);
             DrawRectangleRounded(BotaoQuit, RoundButton, Segments,  CorBotao);
@@ -117,13 +120,14 @@ int main(){
             int widthFooter = MeasureText(textFooter, FONT_SIZE);
             int xFooter = (1280 / 2) - (widthFooter / 2); // o x do footer é a largura da tela
             int yFooter = 700   ; // Mantém sua posição Y original
-            DrawText(textFooter, xFooter, yFooter, FONT_SIZE, BLACK);
+            DrawText(textFooter, xFooter, yFooter, FONT_SIZE, WHITE);
 
            
 
         EndDrawing();
     }
     
+    UnloadTexture(background); 
     UnloadSound(Som_UI);
     CloseAudioDevice();    
     CloseWindow();
