@@ -13,7 +13,7 @@ int main(){
     Rectangle BotaoQuit = {-5, 300, 250, 60};
     Rectangle BotaoCredits = {-5, 400, 250, 60};
     Color CorBotao = { 30, 30, 30, 255 };
-    Color CorBotaoSel = { 50, 50, 50, 255 }; 
+    Color CorBotaoSel = { 50, 50, 50, 255 };
     
     // Definições de Texto para usar no MeasureText
     const int FONT_SIZE = 20;
@@ -30,19 +30,19 @@ int main(){
     float RoundButton = 0.3f;
     int Segments = 8;
 
-    Texture2D background;
-    background = LoadTexture("Images/Background.png");
+    Texture2D startscreen = LoadTexture("images/startscreen.jpg");
 
     while(WindowShouldClose() == false)
     {
         
         BeginDrawing();
-            ClearBackground(WHITE);
+            DrawTexture(startscreen, 0, 0, WHITE);
+            // DrawTexturePro(startscreen, (Rectangle){0, 0, startscreen.width, startscreen.height}, (Rectangle){0, 0, 1280, 720}, (Vector2){0, 0}, 0, WHITE);
             
 
             //  Botões Menu
             DrawRectangleRounded(BotaoStart, RoundButton, Segments, CorBotao);
-            DrawRectangleRounded(BotaoQuit, RoundButton, Segments,  CorBotao);
+            DrawRectangleRounded(BotaoQuit, RoundButton, Segments, CorBotao);
             DrawRectangleRounded(BotaoCredits, RoundButton, Segments, CorBotao);
         
             //Interação com o Botão
@@ -57,7 +57,7 @@ int main(){
                 if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
                     printf("Botão JOGAR foi clicado");
                 }
-            } 
+            }
 
             else if(CheckCollisionPointRec(GetMousePosition(), BotaoQuit)){
                 DrawRectangleRounded(BotaoQuit, RoundButton, Segments, CorBotaoSel);
@@ -103,7 +103,7 @@ int main(){
 
             //SAIR
             int widthQuit = MeasureText(textQuit, FONT_SIZE);
-            int xQuit = BotaoQuit.x + (BotaoQuit.width - widthQuit) / 2; // pega o tamanho total do botao(largura) e subtrai pelo tam do texto para descobrir as margens.
+            int xQuit = BotaoQuit.x + (BotaoQuit.width - widthQuit) / 2; // pega o tamanho total do botao (largura) e subtrai pelo tam do texto para descobrir as margens.
             int yQuit = BotaoQuit.y + (BotaoQuit.height - FONT_SIZE) / 2;
             DrawText(textQuit, xQuit, yQuit, FONT_SIZE, RAYWHITE);
 
