@@ -66,7 +66,7 @@ void TelaCreditos(void) {
                 DrawRectangleRec(btnback, Fade(GRAY, 0.8f));
             }
 
-        DrawText("VOLTA", btnback.x+60, btnback.y+12, 28, BLACK);
+        DrawText("VOLTAR", btnback.x+60, btnback.y+12, 28, BLACK);
 
         EndDrawing();
     }
