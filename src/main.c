@@ -4,7 +4,7 @@
 int main(){
 
     // Inicialização
-    InitWindow(1280, 720, "Primeiro Teste");
+    InitWindow(1280, 720, "Princesa Não Encontrada");
     SetTargetFPS(60);
     InitAudioDevice();
     
@@ -24,29 +24,36 @@ int main(){
 
     
     Sound Som_UI = LoadSound("sounds/UI_SOUND.mp3");
-    SetSoundVolume(Som_UI, 30);
+    Sound Som_TelaInicial = LoadSound("sounds/Sound_Menu.mp3");
+    SetSoundVolume(Som_UI, 10);
+    SetSoundVolume(Som_TelaInicial, 0.25);
     bool FlagMouse = false;
 
     float RoundButton = 0.3f;
     int Segments = 8;
 
-    Texture2D startscreen = LoadTexture("images/startscreen.jpg");
+    Texture2D background = LoadTexture("images/Background.png");
+
+    // Musica Menu
+    PlaySound(Som_TelaInicial);
 
     while(WindowShouldClose() == false)
     {
         
         BeginDrawing();
-            DrawTexture(startscreen, 0, 0, WHITE);
-            // DrawTexturePro(startscreen, (Rectangle){0, 0, startscreen.width, startscreen.height}, (Rectangle){0, 0, 1280, 720}, (Vector2){0, 0}, 0, WHITE);
-            
+            // ClearBackground(RAYWHITE);
+            DrawTexture(background, 0, 0, WHITE);
 
             // Título
-
+            DrawText("Error 404:", 264, 104, 55, BLACK);
+            DrawText("Error 404:", 260, 100, 55, WHITE);       
+            DrawText("Princesa Não Encontrada", 104, 154, 55, BLACK);
+            DrawText("Princesa Não Encontrada", 100, 150, 55, WHITE);
             
             // Botões Menu
-            DrawRectangleRounded(BotaoStart, RoundButton, Segments, CorBotao);
-            DrawRectangleRounded(BotaoQuit, RoundButton, Segments, CorBotao);
-            DrawRectangleRounded(BotaoCredits, RoundButton, Segments, CorBotao);
+            DrawRectangle(BotaoStart.x, BotaoStart.y, BotaoStart.width, BotaoStart.height, CorBotao);
+            DrawRectangle(BotaoQuit.x, BotaoQuit.y, BotaoQuit.width, BotaoQuit.height, CorBotao);
+            DrawRectangle(BotaoCredits.x, BotaoCredits.y, BotaoCredits.width, BotaoCredits.height, CorBotao);
         
             // Interação com o Botão
             if(CheckCollisionPointRec(GetMousePosition(), BotaoStart)){
@@ -71,7 +78,7 @@ int main(){
                     }
 
                 if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
-                    printf("Botão Saur foi clicado");
+                    printf("Botão Sair foi clicado");
                     break;
                 }
             } 
@@ -127,8 +134,9 @@ int main(){
         EndDrawing();
     }
     
-    UnloadTexture(startscreen); 
+    UnloadTexture(background); 
     UnloadSound(Som_UI);
+    UnloadSound(Som_TelaInicial);
     CloseAudioDevice();    
     CloseWindow();
     return 0;    
