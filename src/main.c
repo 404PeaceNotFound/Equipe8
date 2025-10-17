@@ -34,7 +34,7 @@ int main(){
     int Segments = 8;
 
 
-    Texture2D background = LoadTexture("images/Background.png");
+    Texture2D background = LoadTexture("Images/Background.png");
 
     // Musica Menu
     PlaySound(Som_TelaInicial);
@@ -134,8 +134,6 @@ int main(){
 
         EndDrawing();
     }
-    
-    UnloadTexture(background); 
     UnloadSound(Som_UI);
     UnloadSound(Som_TelaInicial);
     CloseAudioDevice();    

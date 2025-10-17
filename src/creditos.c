@@ -60,8 +60,8 @@ void TelaCreditos(void) {
         if(CheckCollisionPointRec(GetMousePosition(), btnback)){
             DrawRectangleRec(btnback, Fade(LIGHTGRAY, 0.8f));
             if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
-                break;
-            }
+                break;                                               
+            }                                                   
             }else{
                 DrawRectangleRec(btnback, Fade(GRAY, 0.8f));
             }
