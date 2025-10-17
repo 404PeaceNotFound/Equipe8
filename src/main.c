@@ -24,7 +24,7 @@ int main(){
 
     
     Sound Som_UI = LoadSound("Sounds/UI_SOUND.mp3");
-    Sound Som_TelaInicial = LoadSound("/home/lucianojrs/Documentos/GITHUB/Equipe8/src/Sounds/Sound_Menu.mp3");
+    Sound Som_TelaInicial = LoadSound("Sounds/Sound_Menu.mp3");
     SetSoundVolume(Som_UI, 10);
     SetSoundVolume(Som_TelaInicial, 0.25);
     bool FlagMouse = false;
@@ -33,7 +33,7 @@ int main(){
     int Segments = 8;
 
     Texture2D background;
-    background = LoadTexture("/home/lucianojrs/Documentos/GITHUB/Equipe8/imagens/Background.png");
+    background = LoadTexture("imagens/Background.png");
 
     //Musica Menu
     PlaySound(Som_TelaInicial);
