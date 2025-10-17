@@ -40,12 +40,14 @@ int main(){
 
     while(WindowShouldClose() == false)
     {
-        
+        float time = GetTime();
+
         BeginDrawing();
             //ClearBackground(RAYWHITE);
             DrawTexture(background, 0, 0, WHITE);
 
             //Título
+
             DrawText("Error 404:", 264, 104, 55, BLACK);
             DrawText("Error 404:", 260, 100, 55, WHITE);       
             DrawText("Princesa Não Encontrada", 104, 154, 55, BLACK);
