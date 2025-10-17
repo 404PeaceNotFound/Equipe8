@@ -35,28 +35,28 @@ int main(){
     Texture2D background;
     background = LoadTexture("imagens/Background.png");
 
-    //Musica Menu
+    // Musica Menu
     PlaySound(Som_TelaInicial);
 
     while(WindowShouldClose() == false)
     {
         
         BeginDrawing();
-            //ClearBackground(RAYWHITE);
+            // ClearBackground(RAYWHITE);
             DrawTexture(background, 0, 0, WHITE);
 
-            //Título
+            // Título
             DrawText("Error 404:", 264, 104, 55, BLACK);
             DrawText("Error 404:", 260, 100, 55, WHITE);       
             DrawText("Princesa Não Encontrada", 104, 154, 55, BLACK);
             DrawText("Princesa Não Encontrada", 100, 150, 55, WHITE);
             
-            //  Botões Menu
+            // Botões Menu
             DrawRectangle(BotaoStart.x, BotaoStart.y, BotaoStart.width, BotaoStart.height, CorBotao);
             DrawRectangle(BotaoQuit.x, BotaoQuit.y, BotaoQuit.width, BotaoQuit.height, CorBotao);
             DrawRectangle(BotaoCredits.x, BotaoCredits.y, BotaoCredits.width, BotaoCredits.height, CorBotao);
         
-            //Interação com o Botão
+            // Interação com o Botão
             if(CheckCollisionPointRec(GetMousePosition(), BotaoStart)){
                 DrawRectangleRounded(BotaoStart, RoundButton, Segments, CorBotaoSel);
                 //Começar Jogo
@@ -79,7 +79,7 @@ int main(){
                     }
 
                 if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
-                    printf("Botão Saur foi clicado");
+                    printf("Botão Sair foi clicado");
                     break;
                 }
             } 
@@ -112,7 +112,7 @@ int main(){
             int yStart = BotaoStart.y + (BotaoStart.height - FONT_SIZE) / 2;
             DrawText(textStart, xStart, yStart, FONT_SIZE, RAYWHITE);
 
-            //SAIR
+            // SAIR
             int widthQuit = MeasureText(textQuit, FONT_SIZE);
             int xQuit = BotaoQuit.x + (BotaoQuit.width - widthQuit) / 2; // pega o tamanho total do botao(largura) e subtrai pelo tam do texto para descobrir as margens.
             int yQuit = BotaoQuit.y + (BotaoQuit.height - FONT_SIZE) / 2;
