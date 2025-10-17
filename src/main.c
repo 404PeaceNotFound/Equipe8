@@ -23,7 +23,7 @@ int main(){
     const char *textFooter = "CIN-UFPE 2025"; 
 
     
-    Sound Som_UI = LoadSound("Sounds/UI_SOUND.mp3");
+    Sound Som_UI = LoadSound("sounds/UI_SOUND.mp3");
     SetSoundVolume(Som_UI, 30);
     bool FlagMouse = false;
 
@@ -40,18 +40,18 @@ int main(){
             // DrawTexturePro(startscreen, (Rectangle){0, 0, startscreen.width, startscreen.height}, (Rectangle){0, 0, 1280, 720}, (Vector2){0, 0}, 0, WHITE);
             
 
-            //Título
+            // Título
 
             
-            //  Botões Menu
+            // Botões Menu
             DrawRectangleRounded(BotaoStart, RoundButton, Segments, CorBotao);
             DrawRectangleRounded(BotaoQuit, RoundButton, Segments, CorBotao);
             DrawRectangleRounded(BotaoCredits, RoundButton, Segments, CorBotao);
         
-            //Interação com o Botão
+            // Interação com o Botão
             if(CheckCollisionPointRec(GetMousePosition(), BotaoStart)){
                 DrawRectangleRounded(BotaoStart, RoundButton, Segments, CorBotaoSel);
-                //Começar Jogo
+                // Começar Jogo
                 if(!FlagMouse){
                     PlaySound(Som_UI);
                     FlagMouse = true;
@@ -64,7 +64,7 @@ int main(){
 
             else if(CheckCollisionPointRec(GetMousePosition(), BotaoQuit)){
                 DrawRectangleRounded(BotaoQuit, RoundButton, Segments, CorBotaoSel);
-                //Sair do Jogo
+                // Sair do Jogo
                 if(!FlagMouse){
                     PlaySound(Som_UI);
                     FlagMouse = true;
@@ -78,7 +78,7 @@ int main(){
 
             else if(CheckCollisionPointRec(GetMousePosition(), BotaoCredits)){
                 DrawRectangleRounded(BotaoCredits, RoundButton, Segments, CorBotaoSel);
-                //Entrar nos créditos
+                // Entrar nos créditos
                 if(!FlagMouse){
                     PlaySound(Som_UI);
                     FlagMouse = true;
@@ -104,7 +104,7 @@ int main(){
             int yStart = BotaoStart.y + (BotaoStart.height - FONT_SIZE) / 2;
             DrawText(textStart, xStart, yStart, FONT_SIZE, RAYWHITE);
 
-            //SAIR
+            // SAIR
             int widthQuit = MeasureText(textQuit, FONT_SIZE);
             int xQuit = BotaoQuit.x + (BotaoQuit.width - widthQuit) / 2; // pega o tamanho total do botao (largura) e subtrai pelo tam do texto para descobrir as margens.
             int yQuit = BotaoQuit.y + (BotaoQuit.height - FONT_SIZE) / 2;
