@@ -31,8 +31,7 @@ int main(){
     float RoundButton = 0.3f;
     int Segments = 8;
 
-    Texture2D background;
-    background = LoadTexture("Images/Background.png");
+    Texture2D Background = LoadTexture("Images/Background.png");
 
     while(WindowShouldClose() == false)
     {
@@ -127,5 +126,6 @@ int main(){
     UnloadSound(Som_UI);
     CloseAudioDevice();    
     CloseWindow();
+    UnloadTexture(Background);
     return 0;    
 }
