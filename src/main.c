@@ -9,10 +9,10 @@ int main(){
     InitAudioDevice();
     
     // Definições de Botões e Cores
-    Rectangle BotaoStart = {-5, 300, 250, 60};
-    Rectangle BotaoQuit = {-5, 400, 250, 60};
-    Rectangle BotaoCredits = {-5, 500, 250, 60};
-    Color CorBotao = { 30, 30, 30, 255 };
+    Rectangle BotaoStart = {-5, 300, 300, 60};
+    Rectangle BotaoQuit = {-5, 400, 300, 60};
+    Rectangle BotaoCredits = {-5, 500, 300, 60};
+    Color CorBotao = { 30, 30, 30, 150 };
     Color CorBotaoSel = { 50, 50, 50, 255 }; 
     
     // Definições de Texto para usar no MeasureText
@@ -41,12 +41,15 @@ int main(){
             DrawTexture(background, 0, 0, WHITE);
 
             //Título
-
+            DrawText("Error 404:", 264, 104, 55, BLACK);
+            DrawText("Error 404:", 260, 100, 55, WHITE);       
+            DrawText("Princesa Não Encontrada", 104, 154, 55, BLACK);
+            DrawText("Princesa Não Encontrada", 100, 150, 55, WHITE);
             
             //  Botões Menu
-            DrawRectangleRounded(BotaoStart, RoundButton, Segments, CorBotao);
-            DrawRectangleRounded(BotaoQuit, RoundButton, Segments,  CorBotao);
-            DrawRectangleRounded(BotaoCredits, RoundButton, Segments, CorBotao);
+            DrawRectangle(BotaoStart.x, BotaoStart.y, BotaoStart.width, BotaoStart.height, CorBotao);
+            DrawRectangle(BotaoQuit.x, BotaoQuit.y, BotaoQuit.width, BotaoQuit.height, CorBotao);
+            DrawRectangle(BotaoCredits.x, BotaoCredits.y, BotaoCredits.width, BotaoCredits.height, CorBotao);
         
             //Interação com o Botão
             if(CheckCollisionPointRec(GetMousePosition(), BotaoStart)){
