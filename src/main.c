@@ -4,7 +4,7 @@
 int main(){
 
     // Inicialização
-    InitWindow(1280, 720, "Primeiro Teste");
+    InitWindow(1280, 720, "Princesa Não Encontrada");
     SetTargetFPS(60);
     InitAudioDevice();
     
@@ -24,7 +24,9 @@ int main(){
 
     
     Sound Som_UI = LoadSound("Sounds/UI_SOUND.mp3");
-    SetSoundVolume(Som_UI, 30);
+    Sound Som_TelaInicial = LoadSound("/home/lucianojrs/Documentos/GITHUB/Equipe8/src/Sounds/Sound_Menu.mp3");
+    SetSoundVolume(Som_UI, 10);
+    SetSoundVolume(Som_TelaInicial, 0.25);
     bool FlagMouse = false;
 
     float RoundButton = 0.3f;
@@ -32,6 +34,9 @@ int main(){
 
     Texture2D background;
     background = LoadTexture("/home/lucianojrs/Documentos/GITHUB/Equipe8/imagens/Background.png");
+
+    //Musica Menu
+    PlaySound(Som_TelaInicial);
 
     while(WindowShouldClose() == false)
     {
@@ -132,6 +137,7 @@ int main(){
     
     UnloadTexture(background); 
     UnloadSound(Som_UI);
+    UnloadSound(Som_TelaInicial);
     CloseAudioDevice();    
     CloseWindow();
     return 0;    
