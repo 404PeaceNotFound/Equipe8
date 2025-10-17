@@ -33,14 +33,11 @@ int main(){
     float RoundButton = 0.3f;
     int Segments = 8;
 
-<<<<<<< HEAD
-    Texture2D Background = LoadTexture("Images/Background.png");
-=======
+
     Texture2D background = LoadTexture("images/Background.png");
 
     // Musica Menu
     PlaySound(Som_TelaInicial);
->>>>>>> 02af25fe2d7ac0ddd0ffefcdfc8ce55c293840cc
 
     while(WindowShouldClose() == false)
     {
@@ -143,6 +140,6 @@ int main(){
     UnloadSound(Som_TelaInicial);
     CloseAudioDevice();    
     CloseWindow();
-    UnloadTexture(Background);
+    UnloadTexture(background);
     return 0;    
 }
