@@ -1,33 +1,52 @@
 #include <raylib.h>
+#include <stdio.h>
 
 
 void TelaCreditos(void) {
 
-    Texture2D Background = LoadTexture("Images/background_creditos.jpeg"); //imagem de fundo 
-    //Music music = LoadMusicStream("Sounds/POL-into-the-castle-short.mp3"); // musica dos créditos
 
-    //PlayMusicStream(music);
-    //SetMusicVolume(music, 0.5f);
     Sound Som_UI = LoadSound("sounds/UI_SOUND.mp3");
     SetSoundVolume(Som_UI, 10);
     bool FlagMouse = false;
-    
+    int NumFrames = 187;
+    int FPS_VIDEO = 30; 
+
     Rectangle btnback  = {1000, 650, 175, 50}; // v_locais 
     Color CorBotao = { 30, 30, 30, 150 };
     float scrolly = 720.0f;
+    Texture2D frames[187];
 
-    while (!WindowShouldClose()) { //loop  que roda os creditos
-        //UpdateMusicStream(music);
+    //Carregando frames
+    for(int i = 0; i < NumFrames; i++){
+        char filename[64];
+        sprintf(filename, "frames/frame_%04d.png", i+1);
+        Image img = LoadImage(filename);
+        frames[i] = LoadTextureFromImage(img);
+        UnloadImage(img);
+    }
+
+    int FrameAtual = 0;
+    float Frame = 0;
+    float TempoFrame = 1.0f / FPS_VIDEO;
+
+    //LOOP
+    while (!WindowShouldClose()) { 
+
         if(IsKeyPressed(KEY_ESCAPE)){
             break;
         }
-        BeginDrawing();
-        ClearBackground(RAYWHITE);
+        Frame += GetFrameTime();
+        if(Frame >= TempoFrame){
+            Frame = 0;
+            FrameAtual = (FrameAtual + 1)%NumFrames;
+        }
 
-        DrawTextureEx(Background, (Vector2){0, 0}, 0.0f, (float)GetScreenWidth()/Background.width, WHITE);
+        BeginDrawing();
+
+        ClearBackground(BLACK);
+        DrawTexture(frames[FrameAtual], 0, 0, WHITE);
         DrawRectangleRec(btnback, CorBotao);
         
-
         scrolly -= 1.0f;
         if(scrolly < -400){ //descer os creditos
             scrolly =720;
@@ -84,6 +103,8 @@ void TelaCreditos(void) {
     // Limpa recursos usados 
     //StopMusicStream(music);
     UnloadSound(Som_UI);
-    UnloadTexture(Background);
+    for (int i = 0; i < NumFrames; i++) {
+        UnloadTexture(frames[i]);
+    }
 
 }
