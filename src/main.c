@@ -4,7 +4,8 @@
 int main(){
 
     // Inicialização
-    InitWindow(1280, 720, "Princesa Não Encontrada");
+    InitWindow(1280, 720, "Erro 404: Princesa Não Encontrada");
+    //ChangeDirectory(GetApplicationDirectory()); // testando p/ rodar com o makefile
     SetTargetFPS(60);
     InitAudioDevice();
     
@@ -23,8 +24,8 @@ int main(){
     const char *textFooter = "CIN-UFPE 2025"; 
 
     
-    Sound Som_UI = LoadSound("sounds/UI_SOUND.mp3");
-    Sound Som_TelaInicial = LoadSound("sounds/Sound_Menu.mp3");
+    Sound Som_UI = LoadSound("assets/sounds/UI_SOUND.mp3");
+    Sound Som_TelaInicial = LoadSound("assets/sounds/Sound_Menu.mp3");
     SetSoundVolume(Som_UI, 10);
     SetSoundVolume(Som_TelaInicial, 0.25);
     bool FlagMouse = false;
@@ -32,7 +33,7 @@ int main(){
     float RoundButton = 0.3f;
     int Segments = 8;
 
-    Texture2D background = LoadTexture("images/Background.png");
+    Texture2D background = LoadTexture("assets/images/Background.png");
 
     // Musica Menu
     PlaySound(Som_TelaInicial);
@@ -65,7 +66,7 @@ int main(){
                     }
 
                 if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
-                    printf("Botão JOGAR foi clicado");
+                    printf("Botao JOGAR foi clicado\n");
                 }
             }
 
@@ -78,7 +79,7 @@ int main(){
                     }
 
                 if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
-                    printf("Botão Sair foi clicado");
+                    printf("Botao Sair foi clicado\n");
                     break;
                 }
             } 
@@ -92,7 +93,7 @@ int main(){
                     }
 
                 if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
-                    printf("Botão Créditos foi clicado");
+                    printf("Botao Creditos foi clicado\n");
                 }
             }
 
