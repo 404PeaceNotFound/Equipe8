@@ -33,29 +33,32 @@ void TelaCreditos(void) {
             scrolly =720;
         }
         //testos na pagina de creditos
-        DrawText("CRÉDITOS", 290, scrolly + 2, 50, BLACK);
-        DrawText("CRÉDITOS", 290, scrolly, 50, WHITE);
+        DrawText("CRÉDITOS", 290, scrolly-6, 50, BLACK);
+        DrawText("CRÉDITOS", 290, scrolly-10, 50, WHITE);
 
         //Nome dos colaboradores
-        DrawText("Desenvolvedor 1: Gibriel Vieira <gvnrb>", 240, scrolly+80, 30, BLACK);
-        DrawText("Desenvolvedor 1: Gibriel Vieira <gvnrb>", 238, scrolly+78, 30, WHITE);
+        DrawText("Equipe:", 240, scrolly+42, 30, BLACK);
+        DrawText("Equipe:", 238, scrolly+38, 30, WHITE);
 
-        DrawText("Desenvolvedor 2: Guilherme Vitor <gvca>",240, scrolly+120, 30, BLACK);
-        DrawText("Desenvolvedor 2: Guilherme Vitor <gvca>",238, scrolly+118, 30, WHITE);
+        DrawText("Gabriel Vieira <gvnrb>", 240, scrolly+82, 30, BLACK);
+        DrawText("Gabriel Vieira <gvnrb>", 238, scrolly+78, 30, WHITE);
 
-        DrawText("Desenvolvedor 3: João victor <jvajs>", 240, scrolly+160, 30, BLACK);
-        DrawText("Desenvolvedor 3: João victor <jvajs>", 238, scrolly+158, 30, WHITE);
+        DrawText("Guilherme Vitor <gvca>",240, scrolly+122, 30, BLACK);
+        DrawText("Guilherme Vitor <gvca>",238, scrolly+118, 30, WHITE);
 
-        DrawText("Desenvolvedor 4: José Lucas <jlhm>", 240, scrolly+200, 30, BLACK);
-        DrawText("Desenvolvedor 4: José Lucas <jlhm>", 238, scrolly+198, 30, WHITE);
+        DrawText("João victor <jvajs>", 240, scrolly+162, 30, BLACK);
+        DrawText("João victor <jvajs>", 238, scrolly+158, 30, WHITE);
 
-        DrawText("Desenvolvedor 5: Luciano José <ljsj>", 240, scrolly+240, 30, BLACK);
-        DrawText("Desenvolvedor 5: Luciano José <ljsj>", 238, scrolly+238, 30, WHITE);
+        DrawText("José Lucas <jlhm>", 240, scrolly+202, 30, BLACK);
+        DrawText("José Lucas <jlhm>", 238, scrolly+198, 30, WHITE);
+
+        DrawText("Luciano José <ljsj>", 240, scrolly+242, 30, BLACK);
+        DrawText("Luciano José <ljsj>", 238, scrolly+238, 30, WHITE);
 
         // Agradecimentos 
 
-        DrawText("Obrigado Por Jogar! : NOME_DO_JOGO", 240, scrolly+360, 30, BLACK);
-        DrawText("Obrigado Por Jogar! : NOME_DO_JOGO", 238, scrolly+358, 30, WHITE);
+        DrawText("Obrigado Por Jogar!", 240, scrolly+362, 30, BLACK);
+        DrawText("Obrigado Por Jogar!", 238, scrolly+358, 30, WHITE);
 
         //Botão de Voltar
         if(CheckCollisionPointRec(GetMousePosition(), btnback)){
