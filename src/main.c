@@ -29,23 +29,44 @@ int main(){
     SetSoundVolume(Som_UI, 10);
     SetSoundVolume(Som_TelaInicial, 0.25);
     bool FlagMouse = false;
+    int FramesTotal = 106;
+    Texture2D Frames[107];
+    int FrameAtual = 0;
+    bool controleframe = false;
 
     float RoundButton = 0.3f;
     int Segments = 8;
 
-
-    Texture2D background = LoadTexture("Images/Background.png");
+    for(int i = 0; i <= FramesTotal; i++){
+        char Caminho[64];
+        sprintf(Caminho, "frames_menu/frame_%03d.png", i+1);
+        Frames[i] = LoadTexture(Caminho);
+        }
+    //Texture2D background = LoadTexture("Images/Background.png");
 
     // Musica Menu
     PlaySound(Som_TelaInicial);
 
     while(WindowShouldClose() == false)
     {
-        float time = GetTime();
+        if(FrameAtual >= FramesTotal){
+            controleframe = true;
+        }
+        else if(controleframe == true && FrameAtual == 0){
+            controleframe = false;
+        }
+
+        if(controleframe == false){
+            FrameAtual++;
+        }
+        else{
+            FrameAtual--;
+        }
+        
 
         BeginDrawing();
             // ClearBackground(RAYWHITE);
-            DrawTexture(background, 0, 0, WHITE);
+            DrawTexture(Frames[FrameAtual], 0, 0, WHITE);
             DrawText("Error 404:", 264, 104, 55, BLACK);
             DrawText("Error 404:", 260, 100, 55, WHITE);       
             DrawText("Princesa Não Encontrada", 104, 154, 55, BLACK);
@@ -137,6 +158,9 @@ int main(){
     UnloadSound(Som_TelaInicial);
     CloseAudioDevice();    
     CloseWindow();
-    UnloadTexture(background);
+    for(int i = 0; i <= FramesTotal; i++){
+        UnloadTexture(Frames[i]);
+    }
+    
     return 0;    
 }
